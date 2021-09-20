@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Sales {
 
     /*Write a program, using dialog boxes, which prompts the user to enter a quantity, price, discount(as an integer) and sales tax(as an integer).
@@ -16,4 +18,21 @@ public class Sales {
     Tax Total: $1.57
     Total Cost: $24.03
      */
+
+    public static void main(String[] args) {
+        int discount, quantity, tax, price;
+        price = Integer.parseInt(JOptionPane.showInputDialog("What was the price?"));
+        discount = Integer.parseInt(JOptionPane.showInputDialog("What was the discount?"));
+        quantity = Integer.parseInt(JOptionPane.showInputDialog("How many did you buy?"));
+        tax = Integer.parseInt(JOptionPane.showInputDialog("What is the sales tax?"));
+
+        double beforeTax = (discount/100.0) * price;
+        double beforeTax2 = price - beforeTax;
+        double quantPrice = beforeTax2 * quantity;
+        double lastTax = price * (tax/100);
+        double truePrice = quantPrice + lastTax;
+
+        JOptionPane.showMessageDialog(null, "Your total with tax is: $" + truePrice);
+
+    }
 }
